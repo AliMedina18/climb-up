@@ -47,7 +47,7 @@ export function VistaDashboard() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
-      className="max-w-[1600px] mx-auto" // Centra el contenido en pantallas ultra-wide
+      className="max-w-400 mx-auto" // Centra el contenido en pantallas ultra-wide
     >
       {/* Bienvenida */}
       <div className="mb-8 md:mb-12">
@@ -111,7 +111,7 @@ export function VistaDashboard() {
             </div>
           </div>
           
-          <div className="h-[250px] md:h-[320px] w-full">
+          <div className="h-62.5 md:h-80 w-full">
             <ResponsiveContainer width="100%" height="100%">
               <AreaChart data={datosIngresos}>
                 <defs>
@@ -173,7 +173,7 @@ export function VistaDashboard() {
             </p>
           </div>
           
-          <div className="h-[250px] md:h-[320px] w-full">
+          <div className="h-62.5 md:h-80 w-full">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={datosGastos} margin={{ top: 0, right: 0, left: -20, bottom: 0 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" vertical={false} />
