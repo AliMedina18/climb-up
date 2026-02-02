@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { motion } from 'motion/react';
 import { Menu, Rocket } from 'lucide-react';
@@ -40,7 +40,7 @@ export function Header() {
           </Button>
         </nav>
         
-        <button className="md:hidden" style={{ color: '#205285' }} aria-label='menu_label'>
+        <button className="md:hidden" style={{ color: '#205285' }}>
           <Menu size={24} />
         </button>
       </div>

@@ -1,6 +1,7 @@
-'use client'
+"use client";
+
 import { motion } from 'motion/react';
-import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line } from 'recharts';
+import { AreaChart, Area, ResponsiveContainer } from 'recharts';
 import { Smartphone, Laptop, Tablet, CheckCircle2 } from 'lucide-react';
 
 const revenueData = [
@@ -21,7 +22,7 @@ const platformFeatures = [
 
 export function DashboardPreview() {
   return (
-    <section id="dashboard" className="py-24 px-6 bg-gradient-to-b from-gray-50 to-white">
+    <section id="dashboard" className="py-24 px-6 bg-linear-to-b from-gray-50 to-white">
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Mockup del teléfono con perspectiva */}
@@ -32,7 +33,7 @@ export function DashboardPreview() {
             transition={{ duration: 0.8 }}
             className="relative order-2 lg:order-1"
           >
-            <div className="relative max-w-[380px] mx-auto">
+            <div className="relative max-w-95 mx-auto">
               {/* Teléfono con efecto 3D */}
               <motion.div
                 animate={{
@@ -232,7 +233,7 @@ export function DashboardPreview() {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   className="flex items-center gap-3"
                 >
-                  <div className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(129, 179, 251, 0.2)' }}>
+                  <div className="w-6 h-6 rounded-full flex items-center justify-center shrink-0" style={{ background: 'rgba(129, 179, 251, 0.2)' }}>
                     <CheckCircle2 size={16} style={{ color: '#205285' }} />
                   </div>
                   <p className="text-gray-700">{feature}</p>

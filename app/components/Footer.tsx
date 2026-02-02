@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { Rocket, Mail, Phone, MapPin, Linkedin, Twitter, Facebook, Instagram } from 'lucide-react';
 
@@ -23,6 +23,7 @@ export function Footer() {
             </p>
             <div className="flex gap-3">
               <a 
+                aria-label='link-Linkedin'
                 href="#" 
                 className="w-10 h-10 rounded-full flex items-center justify-center transition-all hover:scale-110"
                 style={{ background: 'rgba(129, 179, 251, 0.1)' }}
@@ -30,6 +31,7 @@ export function Footer() {
                 <Linkedin size={18} style={{ color: '#205285' }} />
               </a>
               <a 
+                aria-label='link-Twitter'
                 href="#" 
                 className="w-10 h-10 rounded-full flex items-center justify-center transition-all hover:scale-110"
                 style={{ background: 'rgba(129, 179, 251, 0.1)' }}
@@ -37,13 +39,15 @@ export function Footer() {
                 <Twitter size={18} style={{ color: '#205285' }} />
               </a>
               <a 
+                aria-label='link-Facebook'
                 href="#" 
                 className="w-10 h-10 rounded-full flex items-center justify-center transition-all hover:scale-110"
                 style={{ background: 'rgba(129, 179, 251, 0.1)' }}
               >
                 <Facebook size={18} style={{ color: '#205285' }} />
               </a>
-              <a 
+              <a
+                aria-label='link-Instagram'
                 href="#" 
                 className="w-10 h-10 rounded-full flex items-center justify-center transition-all hover:scale-110"
                 style={{ background: 'rgba(129, 179, 251, 0.1)' }}

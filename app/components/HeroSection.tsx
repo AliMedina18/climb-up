@@ -1,17 +1,13 @@
-'use client'
+"use client";
 
-import { motion } from 'framer-motion'; // Ajustado a framer-motion
-import { useRouter } from 'next/navigation';
+import { motion } from 'motion/react';
 import { ArrowRight, CheckCircle2, TrendingUp, BarChart3 } from 'lucide-react';
 
 export function HeroSection() {
-  const router = useRouter(); // Hook para la navegación
-
   return (
-    <section id="inicio" className="relative pt-32 pb-20 px-6 bg-gradient-to-b from-white to-gray-50 overflow-hidden">
+    <section id="inicio" className="relative pt-32 pb-20 px-6 bg-linear-to-b from-white to-gray-50 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          
           {/* Contenido de texto */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -45,27 +41,32 @@ export function HeroSection() {
               Escalones pequeños, creaciones gigantes.
             </p>
 
-            {/* BOTÓN CON REDIRECCIÓN */}
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
               <motion.button
-                onClick={() => router.push('./Login')} 
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 rounded-full text-white font-semibold shadow-lg flex items-center justify-center gap-2 transition-shadow hover:shadow-xl"
+                className="px-8 py-4 rounded-full text-white font-semibold shadow-lg flex items-center justify-center gap-2"
                 style={{ background: 'linear-gradient(135deg, #81b3fb 0%, #205285 100%)' }}
               >
                 Comenzar Gratis
                 <ArrowRight size={20} />
               </motion.button>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-8 py-4 rounded-full font-semibold border-2"
+                style={{ borderColor: '#81b3fb', color: '#205285' }}
+              >
+                Ver Demo
+              </motion.button>
             </div>
 
-            {/* Social Proof */}
             <div className="flex items-center gap-6">
               <div className="flex -space-x-3">
                 {[1, 2, 3, 4].map((i) => (
                   <div 
                     key={i}
-                    className="w-10 h-10 rounded-full border-2 border-white flex items-center justify-center text-white font-semibold shadow-sm"
+                    className="w-10 h-10 rounded-full border-2 border-white flex items-center justify-center text-white font-semibold"
                     style={{ background: i % 2 === 0 ? '#81b3fb' : '#fd9683' }}
                   >
                     {String.fromCharCode(64 + i)}
@@ -79,65 +80,116 @@ export function HeroSection() {
             </div>
           </motion.div>
 
-          {/* Tarjetas flotantes del lado derecho (Visual Dashboard) */}
+          {/* Tarjetas flotantes del lado derecho */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="relative h-[550px] hidden lg:block"
+            className="relative h-150"
           >
-            {/* Tarjeta Principal */}
+            {/* Tarjeta principal - Dashboard preview */}
             <motion.div
               animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute top-10 left-0 right-0 bg-white rounded-3xl shadow-2xl p-6 z-10 border border-gray-100"
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute top-10 left-0 right-0 bg-white rounded-3xl shadow-2xl p-6 z-10"
               style={{ maxWidth: '380px', margin: '0 auto' }}
             >
               <div className="flex items-center justify-between mb-4">
                 <div>
-                  <h3 className="font-semibold text-[#205285]">Dashboard Principal</h3>
-                  <p className="text-xs text-gray-400">Datos en tiempo real</p>
+                  <h3 className="font-semibold" style={{ color: '#205285' }}>Dashboard Principal</h3>
+                  <p className="text-sm text-gray-500">Enero 2026</p>
                 </div>
-                <BarChart3 className="text-[#81b3fb]" size={24} />
+                <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ background: 'rgba(129, 179, 251, 0.2)' }}>
+                  <BarChart3 style={{ color: '#205285' }} size={20} />
+                </div>
               </div>
               
               <div className="rounded-2xl p-6 mb-4" style={{ background: 'linear-gradient(135deg, #81b3fb 0%, #205285 100%)' }}>
                 <p className="text-sm text-white/80 mb-1">Ingresos Mensuales</p>
-                <h2 className="text-3xl font-bold text-white mb-2">$67,450.00</h2>
-                <div className="inline-block px-2 py-1 rounded-lg bg-white/20 text-xs text-white">
-                  +12.5% crec.
+                <h2 className="text-4xl font-bold text-white mb-2">$67,450</h2>
+                <div className="flex items-center gap-2">
+                  <span className="px-2 py-1 rounded-full text-xs font-semibold" style={{ background: 'rgba(255, 255, 255, 0.2)', color: 'white' }}>
+                    +12.5%
+                  </span>
+                  <span className="text-sm text-white/80">vs mes anterior</span>
                 </div>
               </div>
 
-              <div className="grid grid-cols-3 gap-2">
-                {[{l: 'Clientes', v: '890', c: '#205285'}, {l: 'Ventas', v: '1.2k', c: '#fd9683'}, {l: 'Stock', v: '8.4k', c: '#81b3fb'}].map((stat, i) => (
-                  <div key={i} className="bg-gray-50 rounded-xl p-2 text-center">
-                    <p className="text-[10px] text-gray-500">{stat.l}</p>
-                    <p className="text-sm font-bold" style={{ color: stat.c }}>{stat.v}</p>
-                  </div>
-                ))}
+              <div className="grid grid-cols-3 gap-3">
+                <div className="bg-gray-50 rounded-xl p-3">
+                  <p className="text-xs text-gray-500 mb-1">Clientes</p>
+                  <p className="text-xl font-bold" style={{ color: '#205285' }}>890</p>
+                </div>
+                <div className="bg-gray-50 rounded-xl p-3">
+                  <p className="text-xs text-gray-500 mb-1">Órdenes</p>
+                  <p className="text-xl font-bold" style={{ color: '#fd9683' }}>1,234</p>
+                </div>
+                <div className="bg-gray-50 rounded-xl p-3">
+                  <p className="text-xs text-gray-500 mb-1">Productos</p>
+                  <p className="text-xl font-bold" style={{ color: '#81b3fb' }}>8,456</p>
+                </div>
               </div>
             </motion.div>
 
-            {/* Tarjeta Crecimiento */}
+            {/* Tarjeta flotante 1 - Estadísticas */}
             <motion.div
-              animate={{ y: [0, 15, 0] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute top-0 right-10 bg-white rounded-2xl shadow-xl p-4 z-20 border border-gray-100 w-44"
+              animate={{ y: [0, -15, 0], x: [0, 5, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+              className="absolute top-0 -right-4 bg-white rounded-2xl shadow-xl p-4 z-20"
+              style={{ width: '180px' }}
             >
-              <div className="flex items-center gap-2 mb-2">
-                <TrendingUp size={16} className="text-[#fd9683]" />
-                <span className="text-xs font-bold text-[#424a6f]">Crecimiento</span>
+              <div className="flex items-center gap-3 mb-2">
+                <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: 'rgba(253, 150, 131, 0.2)' }}>
+                  <TrendingUp size={16} style={{ color: '#fd9683' }} />
+                </div>
+                <div>
+                  <p className="text-xs text-gray-500">Crecimiento</p>
+                  <p className="font-bold" style={{ color: '#fd9683' }}>+45%</p>
+                </div>
               </div>
-              <div className="h-10 flex items-end gap-1">
-                {[30, 50, 40, 70, 60].map((h, i) => (
-                  <div key={i} className="flex-1 rounded-t-sm" style={{ height: `${h}%`, background: '#fd9683' }} />
+              <div className="h-12 flex items-end gap-1">
+                {[40, 60, 45, 70, 55, 80, 65].map((height, i) => (
+                  <div 
+                    key={i}
+                    className="flex-1 rounded-t"
+                    style={{ height: `${height}%`, background: '#fd9683', opacity: 0.6 + (i * 0.05) }}
+                  />
                 ))}
               </div>
             </motion.div>
 
-            {/* Decoración */}
-            <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full blur-[100px] opacity-20" style={{ background: '#81b3fb' }} />
+            {/* Tarjeta flotante 2 - Tareas completadas */}
+            <motion.div
+              animate={{ y: [0, -12, 0], x: [0, -5, 0] }}
+              transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+              className="absolute bottom-32 -left-8 bg-white rounded-2xl shadow-xl p-4 z-20"
+              style={{ width: '200px' }}
+            >
+              <div className="flex items-center justify-between mb-3">
+                <p className="text-sm font-semibold" style={{ color: '#205285' }}>Eficiencia</p>
+                <CheckCircle2 size={20} style={{ color: '#81b3fb' }} />
+              </div>
+              <div className="space-y-2">
+                <div className="flex items-center justify-between text-xs">
+                  <span className="text-gray-600">Manufactura</span>
+                  <span className="font-semibold" style={{ color: '#205285' }}>93%</span>
+                </div>
+                <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
+                  <div className="h-full rounded-full" style={{ width: '93%', background: '#81b3fb' }} />
+                </div>
+                <div className="flex items-center justify-between text-xs">
+                  <span className="text-gray-600">Ventas</span>
+                  <span className="font-semibold" style={{ color: '#205285' }}>87%</span>
+                </div>
+                <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
+                  <div className="h-full rounded-full" style={{ width: '87%', background: '#fd9683' }} />
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Decoración de fondo */}
+            <div className="absolute -z-10 top-1/4 right-0 w-64 h-64 rounded-full blur-3xl opacity-20" style={{ background: '#81b3fb' }} />
+            <div className="absolute -z-10 bottom-1/4 left-0 w-64 h-64 rounded-full blur-3xl opacity-20" style={{ background: '#fd9683' }} />
           </motion.div>
         </div>
       </div>

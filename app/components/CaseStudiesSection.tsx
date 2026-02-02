@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { motion } from 'motion/react';
 import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, AreaChart, Area } from 'recharts';
@@ -79,7 +79,7 @@ export function CaseStudiesSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="bg-gradient-to-br from-white to-gray-50 rounded-3xl p-8 md:p-12 shadow-sm border border-gray-100 mb-8"
+          className="bg-linear-to-br from-white to-gray-50 rounded-3xl p-8 md:p-12 shadow-sm border border-gray-100 mb-8"
         >
           <div className="flex items-start justify-between mb-8">
             <div>
@@ -142,7 +142,7 @@ export function CaseStudiesSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="bg-gradient-to-br from-white to-gray-50 rounded-3xl p-8 shadow-sm border border-gray-100"
+            className="bg-linear-to-br from-white to-gray-50 rounded-3xl p-8 shadow-sm border border-gray-100"
           >
             <div className="mb-6">
               <h3 className="text-2xl font-bold mb-2" style={{ color: '#205285' }}>
@@ -180,7 +180,7 @@ export function CaseStudiesSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="bg-gradient-to-br from-white to-gray-50 rounded-3xl p-8 shadow-sm border border-gray-100"
+            className="bg-linear-to-br from-white to-gray-50 rounded-3xl p-8 shadow-sm border border-gray-100"
           >
             <div className="mb-6">
               <h3 className="text-2xl font-bold mb-2" style={{ color: '#205285' }}>
@@ -238,8 +238,8 @@ export function CaseStudiesSection() {
                 className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-lg transition-shadow"
               >
                 <Quote size={32} style={{ color: testimonial.avatar, opacity: 0.3 }} className="mb-4" />
-                <p className="text-gray-700 mb-6 leading-relaxed">
-                  {testimonial.comment}
+               <p className="text-gray-700 mb-6 leading-relaxed">
+                  &quot;{testimonial.comment}&quot;
                 </p>
                 <div className="flex items-center gap-4">
                   <div 
