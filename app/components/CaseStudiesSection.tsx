@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion';
 import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, AreaChart, Area } from 'recharts';
 import { Quote } from 'lucide-react';
 
@@ -282,18 +282,20 @@ export function CaseStudiesSection() {
                 Únete a más de 100 empresas que ya están escalando con Climp Up. Escalones pequeños, creaciones gigantes.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button
-                  className="px-8 py-4 rounded-full font-semibold text-white shadow-lg hover:shadow-xl transition-all"
+               <motion.button
+                  whileTap={{ scale: 0.98 }} 
+                  className="px-8 py-4 rounded-full font-semibold text-white cursor-pointer transition-all duration-200 hover:opacity-90 active:opacity-100 shadow-sm"
                   style={{ background: '#fd9683' }}
                 >
                   Solicita una Demo Gratuita
-                </button>
-                <button
-                  className="px-8 py-4 rounded-full font-semibold bg-white hover:bg-gray-50 transition-all"
-                  style={{ color: '#205285' }}
+                </motion.button>
+
+                <motion.button
+                  whileTap={{ scale: 0.98 }}
+                  className="px-8 py-4 rounded-full font-semibold bg-white border border-gray-200 text-[#205285] cursor-pointer transition-all duration-200 hover:bg-gray-50 shadow-sm"
                 >
                   Hablar con Ventas
-                </button>
+                </motion.button>
               </div>
             </div>
           </div>

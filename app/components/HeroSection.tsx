@@ -45,7 +45,7 @@ export function HeroSection() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 rounded-full text-white font-semibold shadow-lg flex items-center justify-center gap-2"
+                className="px-8 py-4 rounded-full text-white font-semibold shadow-lg flex items-center justify-center gap-2 cursor-pointer"
                 style={{ background: 'linear-gradient(135deg, #81b3fb 0%, #205285 100%)' }}
               >
                 Comenzar Gratis
@@ -54,7 +54,7 @@ export function HeroSection() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 rounded-full font-semibold border-2"
+                className="px-8 py-4 rounded-full font-semibold border-2 cursor-pointer"
                 style={{ borderColor: '#81b3fb', color: '#205285' }}
               >
                 Ver Demo

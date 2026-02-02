@@ -257,7 +257,7 @@ export function DashboardPreview() {
             </div>
 
             <button
-              className="px-8 py-4 rounded-full font-semibold text-white shadow-lg hover:shadow-xl transition-all"
+              className="px-8 py-4 rounded-full font-semibold text-white shadow-lg hover:shadow-xl transition-all cursor-pointer"
               style={{ background: 'linear-gradient(135deg, #81b3fb 0%, #205285 100%)' }}
             >
               Probar Dashboard Ahora
